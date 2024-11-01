@@ -25,7 +25,7 @@ The application will store Users, Lists, Reviews
 * each item can have multiple reviews (by embedding)
 
 
-(sample documents:)
+(sample documents rough draft:)
 
 An Example User:
 They would have a username and password 
@@ -80,8 +80,43 @@ and it should also have a timestamp as well
 
 }
 ```
+```
+FROM ACTUAL db.mjs
+// User Schema
+const userSchema = new Schema({
+  username: { type: String, unique: true, required: true },
+  password: { type: String, required: true },
+  profilePhotoUrl: { type: String, default: '' },
+  lists: [{ type: Schema.Types.ObjectId, ref: 'List' }]
+});
 
+// List Schema
+const listSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  // "Watched", "Want to Watch", "Currently Watching"
+  listname: { type: String, required: true }, 
+  items: [{ type: Schema.Types.ObjectId, ref: 'Item' }]
+});
 
+// (Movie/Show) Schema
+const itemSchema = new Schema({
+  title: { type: String, required: true },
+  year: { type: Number, required: true },
+  description: { type: String, required: true },
+  genre: { type: String }, 
+  rating: { type: Number, min: 0, max: 1 },
+  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
+});
+
+// Review Schema
+const reviewSchema = new Schema({
+  itemId: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
+  userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  reviewdescription: { type: String, required: true },
+  //https://mongoosejs.com/docs/timestamps.html
+  timestamps: true 
+});
+```
 ## [Link to Commented First Draft Schema](db.mjs) 
 
 ![Schema](db.mjs?raw=true "db")
@@ -119,21 +154,29 @@ Possible/planned research topics
     * And account has been made for testing; I'll email you the password
     * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
     * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
+    * I will be using the above example for my user authentication
+    * Passport is middleware that can be used for authentication purposes
+    * It has session management
     * I want to restrict users from logging into the wrong account by checking their passwords
+    * this should be a secure website
 * (4 points) Perform client side form validation using a JavaScript library
     * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
     * if you put in a number that's greater than 1, an error message will appear in the dom
+    * I am also considereing using validator.js which is supposed to be simple and lightweight for my purposes
     * This way I can have users restrict rating
     * I can make sure passwords, usernames arent too long or too short
+    * i can possibly add a character limit for reviews
     * I want to have error messages where users can go back in and correct their mistakes
 * (6 points) Use a front-end framework
-    * used react.js as the frontend framework
+    * use react.js as the frontend framework
     * its a JavaScript library used for building user interfaces
     * I want to use it becuase I heard its really popular for webapps
+    * I know that it is really useful for its components which will come in handy especially for things like the navbar and getting the reviews organized
 * (2 points) Use a CSS framework or UI toolkit, use a reasonable of customization of the framework (don't just use stock Bootstrap - minimally configure a theme):
   * I would like to explore using Muix
   * Its a package to make components
   * I want to use it because its quicker than manually making buttons and components
+  * It has a simple clean aesthetic compared to others I have seen
 
 
 ## [Link to Initial Main Project File](app.mjs) 
