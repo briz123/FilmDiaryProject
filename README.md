@@ -1,50 +1,83 @@
 The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
 
-(__TODO__: your project name)
+
+PROJECT NAME: FILM DIARY
 
 # Shoppy Shoperson 
 
 ## Overview
 
-(__TODO__: a brief one or two paragraph, high-level description of your project)
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
 
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+I, like other people love watching movies. However, right now the only way I keep track of what I have watched and what I want to watch is by keeping a notes app in my phone. By now, its gotten really long but I think I have a solution for that.
+
+I am going to create a web-app that is essentially a personal film diary. Users should be able to login add movies they are currently watching, have watched, and want to watch. They should also be able to add additional details such as year made, the desription and instead of a rating they should be able to put a thumbs up and thumbs down. They can write reviews as well. While similar to letterboxed there should be less pressure to follow/unfollow other users. I also want to add the ability to download a pdf of a users lists which they can then share if they ever need to.
 
 
 ## Data Model
 
-(__TODO__: a description of your application's data and their relationships to each other) 
 
-The application will store Users, Lists and Items
+The application will store Users, Lists, Reviews
 
 * users can have multiple lists (via references)
+* each user can have multiple reviews (by embedding)
 * each list can have multiple items (by embedding)
+* each item can have multiple reviews (by embedding)
 
-(__TODO__: sample documents)
+
+(sample documents:)
 
 An Example User:
 
 ```javascript
 {
   username: "shannonshopper",
+  userid: //string
+  photourl: //string
   hash: // a password hash,
-  lists: // an array of references to List documents
+  lists: // an array of references 
 }
 ```
 
-An Example List with Embedded Items:
+
 
 ```javascript
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
+  userid: // a reference to a User object
+  listname: "string",
+  listid:"string",
   items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
+    { itemid,"string"}
   ],
   createdAt: // timestamp
+}
+```
+```javascript
+//movie/film
+{
+  itemid: // a reference to a list object
+  title: "string",
+  year:"string",
+  description:"string",
+  genre:"id",
+  rating:"number", //0 for thumbs up,1 for thumbs down
+  reviews: [
+    { reviewid: "string"}
+  ],
+  
+
+}
+```
+```javascript
+//review
+{
+  reviewid: "string"
+  itemid: "string",
+  userid:"string",
+  reviewdescription:"string",
+  createdAt: // timestamp
+  
+
 }
 ```
 
