@@ -11,7 +11,7 @@ PROJECT NAME: FILM DIARY
 
 I, like other people love watching movies. However, right now the only way I keep track of what I have watched and what I want to watch is by keeping a notes app in my phone. By now, its gotten really long but I think I have a solution for that.
 
-I am going to create a web-app that is essentially a personal film diary. Users should be able to login add movies they are currently watching, have watched, and want to watch. They should also be able to add additional details such as year made, the desription and instead of a rating they should be able to put a thumbs up and thumbs down. They can write reviews as well. While similar to letterboxed there should be less pressure to follow/unfollow other users. I also want to add the ability to download a pdf of a users lists which they can then share if they ever need to.
+I am going to create a web-app that is essentially a personal film diary. Users should be able to login add movies they are currently watching, have watched, and want to watch. They should also be able to add additional details such as year made, the desription and instead of a rating they should be able to put a thumbs up and thumbs down based on a number they enter. They can write reviews as well. While similar to letterboxed there should be less pressure to follow/unfollow other users, however people can view anonymous reviews on one of the home pages. I also want to add the ability to download a pdf of a users lists which they can then share if they ever need to.
 
 
 ## Data Model
@@ -84,11 +84,11 @@ and it should also have a timestamp as well
 
 ## [Link to Commented First Draft Schema](db.mjs) 
 
-![Alt text](db.mjs?raw=true "db")
+![Schema](db.mjs?raw=true "db")
 
 ## Wireframes
 
-![Alt text](documentation/WireframeFilmDiary.png?raw=true "Wireframe")
+![Wireframe](documentation/WireframeFilmDiary.png?raw=true "Wireframe")
 
 ## Site map
 
@@ -138,7 +138,7 @@ Possible/planned research topics
 
 ## [Link to Initial Main Project File](app.mjs) 
 
-![Alt text](app.mjs?raw=true "app.mjs")
+![App File](app.mjs?raw=true "app.mjs")
 ## Annotations / References Used
 
 
