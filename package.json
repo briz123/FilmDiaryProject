@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "hbs": "^4.2.0",
+    "mongo-sanitize": "^1.1.0",
+    "mongoose": "^8.8.0",
+    "mongoose-slug-plugin": "^2.1.0",
+    "nodemon": "^3.1.7"
+  },
+  "name": "final-project-briz123",
+  "version": "1.0.0",
+  "description": "Film Diary final project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brizen Britt",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "chai": "^5.1.2",
+    "eslint": "^9.14.0",
+    "eslint-plugin-mocha": "^10.5.0",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.11.0",
+    "mocha": "^10.8.2"
+  }
+}
