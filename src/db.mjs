@@ -2,6 +2,11 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
+import mongooseSlugPlugin from 'mongoose-slug-plugin';
+
+//console.log("MongoDB DSN:", process.env.DSN);
+//mongoose.connect('mongodb://localhost/hw05');
+mongoose.connect(process.env.DSN);
 /**
  * From Readme.md
  * An Example User:
@@ -99,8 +104,7 @@ const reviewSchema = new Schema({
   itemId: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   reviewdescription: { type: String, required: true },
-  //https://mongoosejs.com/docs/timestamps.html
-  timestamps: true 
+ 
 });
 
 const User = mongoose.model('User', userSchema);

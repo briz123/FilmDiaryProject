@@ -48,7 +48,7 @@ an example of a list name would be Watched, Watching,Want to watch
   items: [
     { itemid,"string"}
   ],
-  createdAt: // timestamp
+  // createdAt: // timestamp
 }
 ```
 ```javascript
@@ -70,12 +70,12 @@ The Movie or Show that is being added to a list
 ```javascript
 //review
 This is the Review which would have a reference back to the item(film) that is being reviewed
-and it should also have a timestamp as well
+
 {
   itemid: "string",
   userid:"string",
   reviewdescription:"string",
-  createdAt: // timestamp
+ 
   
 
 }
@@ -113,8 +113,7 @@ const reviewSchema = new Schema({
   itemId: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   reviewdescription: { type: String, required: true },
-  //https://mongoosejs.com/docs/timestamps.html
-  timestamps: true 
+
 });
 ```
 ## [Link to Commented First Draft Schema](db.mjs) 
@@ -187,5 +186,5 @@ Possible/planned research topics
 
 1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
 2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
-3. [Mongoose timestamps](//https://mongoosejs.com/docs/timestamps.html)
+
 
