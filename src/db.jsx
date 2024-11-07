@@ -4,8 +4,15 @@ const { Schema } = mongoose;
 
 import mongooseSlugPlugin from 'mongoose-slug-plugin';
 
+import dotenv from 'dotenv';
+dotenv.config();
 //console.log("MongoDB DSN:", process.env.DSN);
 //mongoose.connect('mongodb://localhost/hw05');
+console.log(process.env.DSN);
+
+
+
+
 mongoose.connect(process.env.DSN);
 /**
  * From Readme.md
