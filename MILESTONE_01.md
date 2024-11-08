@@ -20,17 +20,18 @@ URL for form
 ---
 (TODO: add link to a functioning form)
 
+https://linserv1.cims.nyu.edu/api/lists
 URL for form result
 ---
 (TODO: if applicable, add link to page that shows results of submitting form)
-
-
+//using hardcoded userid for now but here shows lists for this user
+https://linserv1.cims.nyu.edu/api/lists/bcb5360
 
 URL to github that shows line of code where research topic(s) are used / implemented
 --- 
 (TODO: add link to github url that shows line or lines of code that demonstrate in progress work on at least one research topic)
 
-
+Built using react/vite
 
 References 
 ---
