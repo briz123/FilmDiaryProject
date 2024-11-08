@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 const API = import.meta.env.VITE_BACKEND_URL;
+console.log(API)
 // eslint-disable-next-line react/prop-types
 const ListsDisplay = ({ userId }) => {
   const [lists, setLists] = useState([]);
