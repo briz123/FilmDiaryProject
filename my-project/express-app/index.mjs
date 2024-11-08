@@ -24,6 +24,7 @@ const distPath = path.join(__dirname,'dist');
 const PORT = process.env.PORT ?? 23399;
 console.log('Using port:', PORT);
 //need to use cors to run both at the same time
+
 app.use(cors({origin: 'http://linserv1.cims.nyu.edu:12153',}));
 
 // app.listen(process.env.PORT ?? 3000);

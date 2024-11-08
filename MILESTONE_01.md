@@ -21,6 +21,9 @@ URL for form
 (TODO: add link to a functioning form)
 
 https://linserv1.cims.nyu.edu/api/lists
+
+![form](/Users/brizenbritt/final-project-briz123/my-project/vite-app/src/FormLists.jsx)
+
 URL for form result
 ---
 (TODO: if applicable, add link to page that shows results of submitting form)
@@ -38,6 +41,7 @@ References
 (TODO: if applicable, links to annotated lines of code in github repository that were based off of tutorials / articles / sample projects)
 
 https://react.dev/learn/add-react-to-an-existing-project
+
 https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 
 For later auth/register/login:
