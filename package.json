@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -11,18 +12,19 @@
     "mongoose-slug-plugin": "^2.1.0",
     "nodemon": "^3.1.7",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.10"
   },
   "name": "final-project-briz123",
   "version": "1.0.0",
   "description": "Film Diary final project",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
     "dev": "vite",
     "serve": "serve -s dist",
-    "start":"react-scripts start"
+    "start": "react-scripts start"
   },
   "author": "Brizen Britt",
   "license": "ISC",

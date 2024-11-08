@@ -55,4 +55,15 @@ routes:
 https://stackoverflow.com/questions/54282344/how-does-express-and-react-routes-work-on-initial-get-request-from-browser
 https://stackoverflow.com/questions/44684461/how-to-serve-reactjs-static-files-with-expressjs
 
+react: 
+https://dev.to/darkmavis1980/fetching-data-with-react-hooks-and-axios-114h
 
+https://devtrium.com/posts/async-functions-useeffect
+
+https://github.com/NathanKr/react-vite-express-setup/blob/main/server/index.js
+
+https://stackoverflow.com/questions/77195979/vite-doesnt-bundle-everything-in-the-correct-folder/77196272#77196272
+
+https://www.reddit.com/r/node/comments/132hvdz/serving_react_statically_with_express/
+
+https://stackoverflow.com/questions/74586708/how-to-use-axios-to-submit-form-data-only-when-form-is-correctly-filled-out

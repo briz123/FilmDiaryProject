@@ -10,8 +10,8 @@ export default [
   mochaPlugin.configs.flat.recommended,{
 rules: 
 {
-    'semi': [ 'error', 'always' ],
-    'no-var': [ 'error', ],
+    'semi': ['error', 'always'],
+    'no-var': ['error',],
     'prefer-const': ['error', { 'destructuring': 'any', 'ignoreReadBeforeAssign': false }],
     'curly': ['error'],
     'eqeqeq': ['error'],

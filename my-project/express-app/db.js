@@ -1,21 +1,26 @@
 import mongoose from 'mongoose';
-
+// import path from 'path';
 const { Schema } = mongoose;
+import './config.js';
+// import express from 'express';
+import dotenv from 'dotenv';
+// import { fileURLToPath } from 'url';
+dotenv.config();
 
 // import mongooseSlugPlugin from 'mongoose-slug-plugin';
+// console.log("ENv"+process.env.DSN);
 
-import dotenv from 'dotenv';
-dotenv.config();
 //console.log("MongoDB DSN:", process.env.DSN);
-//mongoose.connect('mongodb://localhost/hw05');
-console.log(process.env.DSN);
-
-
-
-
-
-
 mongoose.connect(process.env.DSN);
+
+//console.log("ENv"+process.env.DSN);
+
+
+
+
+
+
+// mongoose.connect("mongodb+srv://bcb5360:Brizen13@final-project.xsqjn.mongodb.net/final-project?retryWrites=true&w=majority&appName=final-project");
 
 
 //same as in Readme.md just in schema format
@@ -35,7 +40,7 @@ const listSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   // "Watched", "Want to Watch", "Currently Watching"
   listname: { type: String, required: true }, 
-  items: [{ type: Schema.Types.ObjectId, ref: 'Item' }]
+  items: [{ type: Schema.Types.ObjectId, ref: 'item' }]
 });
 
 // (Movie/Show) Schema
