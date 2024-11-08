@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-import mongooseSlugPlugin from 'mongoose-slug-plugin';
+// import mongooseSlugPlugin from 'mongoose-slug-plugin';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -13,67 +13,9 @@ console.log(process.env.DSN);
 
 
 
+
+
 mongoose.connect(process.env.DSN);
-/**
- * From Readme.md
- * An Example User:
-They would have a username and password 
-```javascript
-{
-  username: "shannonshopper",
-  photourl: //string
-  hash: // a password hash,
-  lists: // an array of references 
-}
-```
-
-This is for the actal list themselves
-an example of a list name would be Watched, Watching,Want to watch
-
-```javascript
-{
-  userid: // a reference to a User object
-  listname: "string",
-  listid:"string",
-  items: [
-    { itemid,"string"}
-  ],
-  createdAt: // timestamp
-}
-```
-```javascript
-The Movie or Show that is being added to a list
-{
-  
-  title: "string",
-  year:"string",
-  description:"string",
-  genre:"id",
-  rating:"number", //0 for thumbs up,1 for thumbs down
-  reviews: [
-    { reviewid: "string"}
-  ],
-  
-
-}
-```
-```javascript
-//review
-This is the Review which would have a reference back to the item(film) that is being reviewed
-and it should also have a timestamp as well
-{
-  
-  itemid: "string",
-  userid:"string",
-  reviewdescription:"string",
-  createdAt: // timestamp
-  
-
-}
-``` */
-
-
-
 
 
 //same as in Readme.md just in schema format

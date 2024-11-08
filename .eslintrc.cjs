@@ -39,5 +39,7 @@ module.exports = {
         'array-bracket-spacing': ['error'],
 
         'no-console': ['off'],
+        'react/react-in-jsx-scope': 'off',
+
     }
 };

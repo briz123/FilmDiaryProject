@@ -47,6 +47,12 @@ adding an list:
 https://medium.com/@lalafang33/connecting-mongoose-with-react-application-ecab5c7b6afe
 https://teamtreehouse.com/community/update-mongodb-mongoose-using-express-react
 
-api routes:
+api routes and forms:
 https://medium.com/@kaklotarrahul79/step-by-step-guide-connecting-mongodb-with-react-js-for-seamless-full-stack-development-db51c34da282
+https://www.freecodecamp.org/news/how-to-create-forms-in-react-using-react-hook-form/
+
+routes:
+https://stackoverflow.com/questions/54282344/how-does-express-and-react-routes-work-on-initial-get-request-from-browser
+https://stackoverflow.com/questions/44684461/how-to-serve-reactjs-static-files-with-expressjs
+
 
