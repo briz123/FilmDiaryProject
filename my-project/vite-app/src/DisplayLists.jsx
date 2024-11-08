@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+const API = import.meta.env.VITE_BACKEND_URL;
 // eslint-disable-next-line react/prop-types
 const ListsDisplay = ({ userId }) => {
   const [lists, setLists] = useState([]);
@@ -8,7 +8,7 @@ const ListsDisplay = ({ userId }) => {
   useEffect(() => {
     const fetchLists = () => {
       axios
-        .get(`http://localhost:23399/api/lists/${userId}`)
+        .get(`${API}/api/lists/${userId}`)
         .then((res) => {
           setLists(res.data);
         })

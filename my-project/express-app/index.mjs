@@ -24,7 +24,7 @@ const distPath = path.join(__dirname,'dist');
 const PORT = process.env.PORT ?? 23399;
 console.log('Using port:', PORT);
 //need to use cors to run both at the same time
-app.use(cors({origin: 'http://localhost:12153',}));
+app.use(cors({origin: 'http://linserv1.cims.nyu.edu:12153',}));
 
 // app.listen(process.env.PORT ?? 3000);
 //make new list
@@ -73,5 +73,5 @@ app.get('/api/lists/:userId', async (req, res) => {
 
   // app.listen(process.env.PORT || 12154);
   app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+    console.log(`Server is running at http://linserv1.cims.nyu.edu:${PORT}`);
   });

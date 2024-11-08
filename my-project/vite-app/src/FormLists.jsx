@@ -4,15 +4,15 @@
 //https://www.freecodecamp.org/news/how-to-create-forms-in-react-using-react-hook-form/
 import { useState } from 'react';
 import axios from 'axios';
-const API = 'http://localhost:23399';
+// const API = 'http://localhost:23399';
 //const API = import.meta.env.VITE_BACKEND_URL;
 // const response = await fetch(`${API}/products`);
-
+const API = import.meta.env.VITE_BACKEND_URL;
 const FormLists = ({ userId, onCreate }) => {
   const [listName, setListName] = useState('');
 
   const handleSubmit = async (event) => {
-      axios.post('http://localhost:23399/api/lists', { userId, listname: listName })
+      axios.post(`${API}/api/lists`, { userId, listname: listName })
       .then(response => {
       onCreate(response.data); 
       setListName(''); 
