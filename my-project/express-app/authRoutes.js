@@ -44,4 +44,38 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/register', async (req, res)=>{
+    const { username, password } = req.body;
+    let message;
+    // validator.js
+    if (!username || !password) {
+        message= 'Username and password are required';
+        return res.status(400).json({ message});
+    }
+
+    if (!validator.isAlphanumeric(username)) {
+        message = 'Username must be alphanumeric';
+        return res.status(400).json({ message });
+    }
+
+    if (password.length < 6) {
+        message = 'Password must be at least 6 characters';
+        return res.status(400).json({ message });
+    }
+    try{
+        const user = new User({ username, password });
+        await user.save();
+        return res.json({ message: 'Registration successful',username, password });
+
+    }catch(err){
+        console.log(err);
+    }
+
+
+})
+
+
+
+
+
 export default router;

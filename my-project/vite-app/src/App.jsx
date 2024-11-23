@@ -11,6 +11,7 @@ const App = () => {
   // const [userId,setUserId] = useState('672d8ae51f54359e52aec2fd')
   const [userId,setUserId] = useState(null);
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   //
   const [listsUpdated, setListsUpdated] = useState(false);
@@ -29,12 +30,20 @@ const App = () => {
     setIsLoggedIn(true); 
     setShowLoginForm(false); 
   };
+  const handleRegister = () => {
+    setUserId(userId); 
+    setIsLoggedIn(true); 
+    setShowLoginForm(false); 
+  };
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUserId(null);
   };
   const handleLoginForm = () => {
     setShowLoginForm(!showLoginForm); // Toggle the form visibility
+  };
+  const handleRegistrationForm = () => {
+    setShowRegistrationForm(!showRegistrationForm); // Toggle the form visibility
   };
   // //button to register new account
   // const handleRegisterClick = () => {
@@ -49,7 +58,11 @@ const App = () => {
           <button onClick={handleLoginForm}>
             {showLoginForm ? 'Close Login Form' : 'Login'}
           </button>
+          <button onClick={handleRegistrationForm}>
+            {showRegistrationForm ? 'Close Registration Form' : 'Registration'}
+          </button>
           {showLoginForm && <LoginForm onLogin={handleLogin} />}
+          {showRegistrationForm && <RegistrationForm onRegister={handleRegister} />}
         </div>
       )}
 
