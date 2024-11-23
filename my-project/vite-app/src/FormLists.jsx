@@ -8,6 +8,7 @@ import axios from 'axios';
 //const API = import.meta.env.VITE_BACKEND_URL;
 // const response = await fetch(`${API}/products`);
 const API = import.meta.env.VITE_BACKEND_URL;
+//console.log(API);
 const FormLists = ({ userId, onCreate }) => {
   const [listName, setListName] = useState('');
 

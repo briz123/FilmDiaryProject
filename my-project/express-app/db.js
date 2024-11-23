@@ -34,6 +34,7 @@ const userSchema = new Schema({
   lists: [{ type: Schema.Types.ObjectId, ref: 'List' }]
 });
 //for authenthication/password management
+//for source check reference in milestone 03
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   const salt = await bcrypt.genSalt(10);

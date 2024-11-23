@@ -1,8 +1,8 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
-import { User } from './db.mjs';
+import { User } from './db.js';
 import validator from 'validator';
-
+import './db.js';
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
@@ -35,10 +35,10 @@ router.post('/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
         message  = 'Invalid username or password' ;
-      return res.status(400).json({ message});
+        return res.json({message});
     }
 
-    return res.json({ message: 'Login successful' });
+    return res.json({ message: 'Login successful', userId: user._id });
   } catch (err) {
     console.log(err);
   }

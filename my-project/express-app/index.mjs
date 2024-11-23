@@ -13,8 +13,8 @@ import authRoutes from './authRoutes.js';
 // import mongoose from 'mongoose';
 // import sanitize from 'mongo-sanitize';
 
-
 const app = express();
+//app.options('/api/*', cors(corsOptions)); 
 app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,8 +25,9 @@ const distPath = path.join(__dirname,'dist');
 const PORT = process.env.PORT ?? 23399;
 console.log('Using port:', PORT);
 //need to use cors to run both at the same time
+// app.use(cors(corsOptions));
+app.use(cors({origin: ['http://localhost:12153', 'http://linserv1.cims.nyu.edu:12153']})); 
 
-app.use(cors({origin: 'http://linserv1.cims.nyu.edu:12153',}));
 
 // app.listen(process.env.PORT ?? 3000);
 //authentication
@@ -37,7 +38,7 @@ app.use('/api/auth', authRoutes);
 app.post('/api/lists', async (req, res) => {
   const { userId, listname } = req.body;
 
-  // Find the user by userId
+  // find the user by userId
   const user = await User.findById(userId);
   //no user
   if (!user) {
@@ -55,9 +56,10 @@ app.post('/api/lists', async (req, res) => {
   res.status(200).json(list);
 });
 
-// Get all lists for a user
+// get all lists for a user
 app.get('/api/lists/:userId', async (req, res) => {
   const { userId } = req.params;
+  //console.log("Brizen heere");
   
   const user = await User.findById(userId).populate('lists');
   //no user

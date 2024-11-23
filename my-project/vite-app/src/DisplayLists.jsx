@@ -5,11 +5,12 @@ console.log(API)
 // eslint-disable-next-line react/prop-types
 const ListsDisplay = ({ userId }) => {
   const [lists, setLists] = useState([]);
-
+  
   useEffect(() => {
     const fetchLists = () => {
       axios
         .get(`${API}/api/lists/${userId}`)
+        //.get(`http://localhost:12153/api/lists/${userId}`)
         .then((res) => {
           setLists(res.data);
         })
@@ -25,6 +26,7 @@ const ListsDisplay = ({ userId }) => {
       <h3> Your Lists </h3>
         <ul>
           {/* //get lists by id but print out names not id */}
+          {/* console.log(lists); */}
           {lists.map((list) => (
             <li key={list._id}>{list.listname}</li>
           ))}

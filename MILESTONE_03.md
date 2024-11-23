@@ -33,8 +33,15 @@ References
 ---
 (TODO: if applicable, links to annotated lines of code in github repository that were based off of tutorials / articles / sample projects)
 
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-briz123/blob/6c75cba2e0f31de6aead32f0f4c5624549f49bf8/my-project/express-app/db.js#L38
+
 https://stackoverflow.com/questions/14588032/mongoose-password-hashing
 
 https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-1
 
+https://www.youtube.com/watch?v=XOnmDZ9LNDM
+
+
 https://www.npmjs.com/package/validator
+
+https://www.youtube.com/watch?v=ZVyIIyZJutM&t=1452s
