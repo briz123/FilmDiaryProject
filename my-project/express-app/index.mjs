@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import './db.js';
 import {User, List} from './db.js';
 import cors from 'cors';
+import authRoutes from './authRoutes.js';
 
 // import mongoose from 'mongoose';
 // import sanitize from 'mongo-sanitize';
@@ -28,6 +29,8 @@ console.log('Using port:', PORT);
 app.use(cors({origin: 'http://linserv1.cims.nyu.edu:12153',}));
 
 // app.listen(process.env.PORT ?? 3000);
+//authentication
+app.use('/api/auth', authRoutes);
 //make new list
 
 //Create a new list

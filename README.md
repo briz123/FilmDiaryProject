@@ -148,16 +148,7 @@ https://app.mural.co/t/internet5512/m/internet5512/1730492131996/2c731ede10ba9a8
 
 Possible/planned research topics
 
-* (5 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-    * I will be using the above example for my user authentication
-    * Passport is middleware that can be used for authentication purposes
-    * It has session management
-    * I want to restrict users from logging into the wrong account by checking their passwords
-    * this should be a secure website
+
 * (4 points) Perform client side form validation using a JavaScript library
     * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
     * if you put in a number that's greater than 1, an error message will appear in the dom

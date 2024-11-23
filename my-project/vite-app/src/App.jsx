@@ -15,10 +15,23 @@ const App = () => {
     //create a new list and eventually pass the process to the form for adding one
     setListsUpdated(!listsUpdated); 
   };
+  //button to add new user
+  // const handleLoginClick = () => {
+   
+  // };
+
+  // //button to register new account
+  // const handleRegisterClick = () => {
+
+  // };
 
   return (
     <div>
       <h1> Welcome to the Film Diary </h1>
+      {/* <div>
+        <button onClick={handleLoginClick}>Login</button>
+        <button onClick={handleRegisterClick}>Register</button>
+      </div> */}
       {/* //takes user id as well as function above */}
       <FormLists userId={userId} onCreate={handleCreateList} />
       {/* //just userid since its only being used to display */}
