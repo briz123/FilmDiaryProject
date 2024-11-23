@@ -3,6 +3,7 @@ import { useState } from 'react';
 import FormLists from './FormLists';
 import ListsDisplay from './DisplayLists'
 import LoginForm from './loginForm';
+import RegistrationForm from './RegistrationForm';
 
 const App = () => {
   //hardcoded for now

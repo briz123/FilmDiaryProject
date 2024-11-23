@@ -45,3 +45,5 @@ https://www.youtube.com/watch?v=XOnmDZ9LNDM
 https://www.npmjs.com/package/validator
 
 https://www.youtube.com/watch?v=ZVyIIyZJutM&t=1452s
+
+https://www.spurtcommerce.dev/spurtapi/spurtcommerce-addon-api/addon-api/question-and-answer
