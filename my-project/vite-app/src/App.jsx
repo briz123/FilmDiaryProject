@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import FormLists from './FormLists';
 import ListsDisplay from './DisplayLists'
-import LoginForm from './loginForm';
+import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 
 const App = () => {
