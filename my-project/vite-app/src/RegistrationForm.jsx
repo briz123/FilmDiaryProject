@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import validator from 'validator';
-
+// import onRegister from './App'
 const API = import.meta.env.VITE_BACKEND_URL;
 
 const RegistrationForm = ({ onRegister }) => {

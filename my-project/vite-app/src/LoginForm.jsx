@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import validator from 'validator';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 const API = import.meta.env.VITE_BACKEND_URL;
 
 const LoginForm = ({ onLogin }) => {
