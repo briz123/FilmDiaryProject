@@ -3,10 +3,14 @@ import axios from 'axios';
 const API = import.meta.env.VITE_BACKEND_URL;
 console.log(API)
 // eslint-disable-next-line react/prop-types
-const ListsDisplay = ({ userId }) => {
+const ListsDisplay = ({ userId ,listsUpdated}) => {
   const [lists, setLists] = useState([]);
   
   useEffect(() => {
+    // if (!userId) {
+    //   console.error("No userId to fetch lists.");
+    //   return;
+    // }
     const fetchLists = () => {
       axios
         .get(`${API}/api/lists/${userId}`)
@@ -19,7 +23,7 @@ const ListsDisplay = ({ userId }) => {
     //we should be getting the lists over and over so we can display them all
     fetchLists();
     //had to use AI tool to get this function right because I ddint quite understand how to achieve this
-  }, [userId]);
+  }, [userId,listsUpdated]);
 
   return (
     <div>

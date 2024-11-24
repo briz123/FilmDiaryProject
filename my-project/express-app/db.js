@@ -6,7 +6,7 @@ import './config.js';
 import dotenv from 'dotenv';
 // import { fileURLToPath } from 'url';
 dotenv.config();
-
+import bcrypt from 'bcryptjs';
 // import mongooseSlugPlugin from 'mongoose-slug-plugin';
 // console.log("ENv"+process.env.DSN);
 
@@ -35,12 +35,12 @@ const userSchema = new Schema({
 });
 //for authenthication/password management
 //for source check reference in milestone 03
-userSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next();
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-  next();
-});
+// userSchema.pre('save', async function (next) {
+//   if (!this.isModified('password')) return next();
+//   const salt = await bcrypt.genSalt(10);
+//   this.password = await bcrypt.hash(this.password, salt);
+//   next();
+// });
 // List Schema
 const listSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },

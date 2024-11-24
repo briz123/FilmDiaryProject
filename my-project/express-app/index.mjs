@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import './db.js';
 import {User, List} from './db.js';
 import cors from 'cors';
+import bcrypt from 'bcryptjs';
 import authRoutes from './authRoutes.js';
 
 // import mongoose from 'mongoose';
@@ -25,8 +26,8 @@ const distPath = path.join(__dirname,'dist');
 const PORT = process.env.PORT ?? 23399;
 console.log('Using port:', PORT);
 //need to use cors to run both at the same time
-// app.use(cors(corsOptions));
-app.use(cors({origin: ['http://localhost:12153', 'http://linserv1.cims.nyu.edu:12153']})); 
+app.use(cors());
+//app.use(cors({origin: ['http://localhost:12153', 'http://linserv1.cims.nyu.edu:12153']})); 
 
 
 // app.listen(process.env.PORT ?? 3000);
@@ -36,7 +37,7 @@ app.use('/api/auth', authRoutes);
 
 //Create a new list
 app.post('/api/lists', async (req, res) => {
-  const { userId, listname } = req.body;
+  const { userId, listName } = req.body;
 
   // find the user by userId
   const user = await User.findById(userId);
@@ -45,8 +46,8 @@ app.post('/api/lists', async (req, res) => {
     return res.status(400).json({ error: 'User not found' });
   }
 
-  // Create a new list and save it
-  const list = new List({ userId, listname });
+  // create a new list and save it
+  const list = new List({ userId, listname: listName });
   await list.save();
 
   // Add the list to the user's list
@@ -59,15 +60,18 @@ app.post('/api/lists', async (req, res) => {
 // get all lists for a user
 app.get('/api/lists/:userId', async (req, res) => {
   const { userId } = req.params;
-  //console.log("Brizen heere");
-  
-  const user = await User.findById(userId).populate('lists');
-  //no user
+
+  // Check if the user exists
+  const user = await User.findById(userId);
   if (!user) {
     return res.status(404).json({ error: 'User not found' });
   }
 
-  res.status(200).json(user.lists); 
+  // Fetch lists associated with the user
+  const lists = await List.find({ userId });
+  res.json(lists);
+
+  //res.status(200).json(user.lists); 
 });
   //
   app.get('*',(req,res)=>{

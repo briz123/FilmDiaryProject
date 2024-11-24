@@ -11,15 +11,18 @@ const API = import.meta.env.VITE_BACKEND_URL;
 //console.log(API);
 const FormLists = ({ userId, onCreate }) => {
   const [listName, setListName] = useState('');
+  //e.prevent
 
   const handleSubmit = async (event) => {
-      axios.post(`${API}/api/lists`, { userId, listname: listName })
-      .then(response => {
-      onCreate(response.data); 
-      setListName(''); 
-    }) .catch (error => {
-      console.log('Error creating list', error);
-    });
+    event.preventDefault();
+    try {
+      // console.log({ userId, listName }); 
+      await axios.post(`${API}/api/lists`, { userId, listName });
+      onCreate(); // Notify parent that the list was created
+      setListName(''); // Clear the input after submission
+    } catch (error) {
+      console.log('Error creating list:', error);
+    }
   };
 
   return (
