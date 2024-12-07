@@ -32,7 +32,7 @@ They would have a username and password
 ```javascript
 {
   username: "shannonshopper",
-  photourl: //string
+  // photourl: //string
   hash: // a password hash,
   lists: // an array of references 
 }
@@ -153,9 +153,7 @@ Possible/planned research topics
     * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
     * if you put in a number that's greater than 1, an error message will appear in the dom
     * I am also considereing using validator.js which is supposed to be simple and lightweight for my purposes
-    * This way I can have users restrict rating
     * I can make sure passwords, usernames arent too long or too short
-    * i can possibly add a character limit for reviews
     * I want to have error messages where users can go back in and correct their mistakes
 * (6 points) Use a front-end framework
     * use react.js as the frontend framework

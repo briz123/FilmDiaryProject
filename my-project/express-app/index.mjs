@@ -6,7 +6,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import './db.js';
-import {User, List} from './db.js';
+import {User, List, Item} from './db.js';
 import cors from 'cors';
 import bcrypt from 'bcryptjs';
 import authRoutes from './authRoutes.js';
@@ -74,12 +74,47 @@ app.get('/api/lists/:userId', async (req, res) => {
   //res.status(200).json(user.lists); 
 });
   //
-  app.get('*',(req,res)=>{
-    //res.sendFile(path.join(distPath, 'index.html'));
-    console.log('Serving index from:',path.join(distPath, 'index.html')); 
-    res.sendFile(path.join(distPath, 'index.html'));
-    // res.sendFile('./index.html');
+  // app.get('*',(req,res)=>{
+  //   //res.sendFile(path.join(distPath, 'index.html'));
+  //   console.log('Serving index from:',path.join(distPath, 'index.html')); 
+  //   res.sendFile(path.join(distPath, 'index.html'));
+  //   // res.sendFile('./index.html');
+  // });
+
+  app.post('/api/items', async (req, res) => {
+    const { listId, title, year, description, genre, rating,reviewDescription } = req.body;
+    const list = await List.findById(listId);
+    if (!list) {
+      return res.status(404).json({ error: 'List not found' });
+    }
+    //new show/movie
+    const item = new Item({
+      listId,
+      title,
+      year,
+      description,
+      genre,
+      rating,
+      reviewDescription,
+    });
+    await item.save();
+    //save and then add
+    list.items.push(item._id);
+    await list.save();
+    res.status(200).json(item);
   });
+  
+  app.get('/api/items/:listId', async (req, res) => {
+    const { listId } = req.params;
+    const list = await List.findById(listId);
+    if (!list) {
+      return res.status(404).json({ error: 'List not found' });
+    }
+
+    const items = await Item.find({ listId });
+    res.json(items); 
+  });
+
 
   // app.listen(process.env.PORT || 12154);
   app.listen(PORT, () => {

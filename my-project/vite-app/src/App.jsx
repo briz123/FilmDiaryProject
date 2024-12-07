@@ -4,7 +4,7 @@ import FormLists from './FormLists';
 import ListsDisplay from './DisplayLists'
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
-
+import ShowForm from './showForm';
 const App = () => {
   //hardcoded for now
   //later ill make a form for users to register an be added to the mongodb
@@ -39,6 +39,7 @@ const App = () => {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUserId(null);
+    
   };
   const handleLoginForm = () => {
     setShowLoginForm(!showLoginForm); 

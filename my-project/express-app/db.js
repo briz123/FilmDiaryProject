@@ -56,21 +56,21 @@ const itemSchema = new Schema({
   description: { type: String, required: true },
   genre: { type: String }, 
   rating: { type: Number, min: 0, max: 1 },
-  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
+  reviewDescription: { type: String,required: true},
+  listId: { type: Schema.Types.ObjectId, ref: 'List', required: true }
 });
 
 // Review Schema
-const reviewSchema = new Schema({
-  itemId: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
-  userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  reviewdescription: { type: String, required: true },
- 
-});
+// const reviewSchema = new Schema({
+//   itemId: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
+//   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+//   reviewdescription: { type: String, required: true },
+// });
 
 const User = mongoose.model('User', userSchema);
 const List = mongoose.model('List', listSchema);
 const Item = mongoose.model('Item', itemSchema);
-const Review = mongoose.model('Review', reviewSchema);
+// const Review = mongoose.model('Review', reviewSchema);
 
 
-export { User, List, Item, Review };
+export { User, List, Item};
