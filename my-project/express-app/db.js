@@ -33,14 +33,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   lists: [{ type: Schema.Types.ObjectId, ref: 'List' }]
 });
-//for authenthication/password management
-//for source check reference in milestone 03
-// userSchema.pre('save', async function (next) {
-//   if (!this.isModified('password')) return next();
-//   const salt = await bcrypt.genSalt(10);
-//   this.password = await bcrypt.hash(this.password, salt);
-//   next();
-// });
+
 // List Schema
 const listSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },

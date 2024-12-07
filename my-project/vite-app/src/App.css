@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -35,6 +38,9 @@
 
 .card {
   padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .read-the-docs {
