@@ -2,6 +2,7 @@ import { useState} from "react";
 import axios from 'axios';
 const API = import.meta.env.VITE_BACKEND_URL;
 const ShowForm = ({listId, onShowAdded}) =>{
+    //details should be defaulted at first to nothing
     const [showDetails,setShowDetails] = useState({
         title:'',
         year:'',
@@ -10,6 +11,8 @@ const ShowForm = ({listId, onShowAdded}) =>{
         rating: 0,
         reviewDescription:''
     });
+    //once user changes something it needs to overwite
+    //https://stackoverflow.com/questions/67265409/how-to-handle-input-change-in-react
     const handleInputChange=(evt)=>{
         const {name,value}=evt.target;
         setShowDetails((prevDetails)=>({
@@ -17,6 +20,8 @@ const ShowForm = ({listId, onShowAdded}) =>{
             [name]:value,
         }))
     }
+    //https://legacy.reactjs.org/docs/forms.html
+    //https://stackoverflow.com/questions/69856257/using-async-await-in-a-handle-submit
     const handleSubmit = async (evt)=>{
         evt.preventDefault();
         const response = await axios.post(`${API}/api/items`, {

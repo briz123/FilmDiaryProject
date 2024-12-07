@@ -29,7 +29,7 @@ const ListsDisplay = ({ userId ,listsUpdated}) => {
   }, [userId,listsUpdated]);
   //for viewing:
   useEffect(() => {
-    console.log('Fetching shows for list ID:', selectedListId);
+    console.log(selectedListId);
     if (selectedListId) {
       axios
         .get(`${API}/api/items/${selectedListId}`)
@@ -39,6 +39,7 @@ const ListsDisplay = ({ userId ,listsUpdated}) => {
         .catch((error) => console.log('error with the shows:', error));
     }
   }, [selectedListId]);
+  //https://stackoverflow.com/questions/67265409/how-to-handle-input-change-in-react
   const handleShowAdded = (newShow) => {
     setShows((prevShows) => [...prevShows, newShow]);
   };
@@ -52,7 +53,7 @@ const ListsDisplay = ({ userId ,listsUpdated}) => {
           {lists.map((list) => (
             <li key={list._id}>
               {list.listname}
-              <button onClick={() => setSelectedListId(list._id)}>View</button>
+              <button onClick={() => setSelectedListId(list._id)}> View </button>
             </li>
           ))}
         </ul>

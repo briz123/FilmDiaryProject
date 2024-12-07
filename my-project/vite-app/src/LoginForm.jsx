@@ -28,6 +28,9 @@ const LoginForm = ({ onLogin }) => {
 
 
 
+
+
+
     try {
       const response = await axios.post(`${API}/api/auth/login`, { username, password});
       const { userId } = response.data;
@@ -42,7 +45,7 @@ const LoginForm = ({ onLogin }) => {
   return (
     <div>
       <h2>Login</h2>
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+      {error && <div style={{color:'red'}}>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>
           <label> Username: </label>

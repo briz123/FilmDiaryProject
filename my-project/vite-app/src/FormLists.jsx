@@ -12,16 +12,16 @@ const API = import.meta.env.VITE_BACKEND_URL;
 const FormLists = ({ userId, onCreate }) => {
   const [listName, setListName] = useState('');
   //e.prevent
-
+  //this was my first form and i did recieve a little help from tools to get this to work
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       // console.log({ userId, listName }); 
       await axios.post(`${API}/api/lists`, { userId, listName });
-      onCreate(); // Notify parent that the list was created
-      setListName(''); // Clear the input after submission
+      onCreate(); 
+      setListName('');
     } catch (error) {
-      console.log('Error creating list:', error);
+      console.log('error creating list:', error);
     }
   };
 

@@ -114,7 +114,16 @@ app.get('/api/lists/:userId', async (req, res) => {
     const items = await Item.find({ listId });
     res.json(items); 
   });
-
+  app.get('/api/items/user/:userId',async(req,res)=>{
+    const { userId } = req.params;
+    //console.log(`Items? ${userId}`);
+    const lists = await List.find({userId});
+    //console.log('lists found:', lists);
+    //used AI tool for this because kept getting errors when retrieving
+    const items = await Item.find({listId: { $in: lists.map(list => list._id) } });
+    //console.log('items found:', items);
+  res.json(items);
+  });
 
   // app.listen(process.env.PORT || 12154);
   app.listen(PORT, () => {

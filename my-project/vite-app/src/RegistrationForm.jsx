@@ -17,11 +17,9 @@ const RegistrationForm = ({ onRegister }) => {
     if (!username || !password) {
       return setError('Username and password are required');
     }
-
     if (!validator.isAlphanumeric(username)) {
       return setError('Username must be alphanumeric');
     }
-
     if (password.length < 6) {
       return setError('Password must be at least 6 characters');
     }
@@ -30,7 +28,7 @@ const RegistrationForm = ({ onRegister }) => {
 
     try {
       const response = await axios.post(`${API}/api/auth/register`, { username, password});
-      console.log('Registration successful, user ID:', response.data.userId);
+      console.log('registration successful, user :', response.data.userId);
       onRegister(response.data.userId);
       //reset form
       setUsername('');
@@ -45,6 +43,7 @@ const RegistrationForm = ({ onRegister }) => {
   return (
     <div>
       <h2>Register</h2>
+     {/* //https://stackoverflow.com/questions/71039088/what-is-onchange-e-setnamee-target-value-in-react-mean */}
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>

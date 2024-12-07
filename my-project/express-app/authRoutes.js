@@ -12,29 +12,33 @@ router.post('/register', async (req, res) => {
   
   if (!username || !password) {
     message = 'Username and password are required';
-    return res.status(400).json({ message });
+    return res.status(400).json({message });
   }
   //used validator.js
   if (!validator.isAlphanumeric(username)) {
     message = 'Username must be alphanumeric';
-    return res.status(400).json({ message });
+    return res.status(400).json({message });
+  }
+  if (!validator.isAlphanumeric(password)) {
+    message = 'Password must be alphanumeric';
+    return res.status(400).json({message });
   }
 
   if (password.length < 6) {
     message = 'Password must be at least 6 characters';
-    return res.status(400).json({ message });
+    return res.status(400).json({message });
   }
 
   try {
     //existing user as in other homework
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({  username });
     if (existingUser) {
       message = 'Username is already taken';
-      return res.status(400).json({ message });
+      return res.status(400).json({message });
     }
 
     // will use hash later but for now its not needed
-    const user = new User({ username, password });
+    const user = new User({ username,  password });
     await user.save();
 
     // console.log('User registered successfully:', user);  
@@ -42,7 +46,7 @@ router.post('/register', async (req, res) => {
     return res.status(201).json({ message: 'Registration successful', userId: user._id });
   } catch (err) {
     console.log('Error during registration:', err);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ message: 'Server Error' });
   }
 });
 
@@ -89,7 +93,7 @@ router.post('/login', async (req, res) => {
     return res.json({ message: 'Login successful', userId: user._id });
   } catch (err) {
     console.log('Error during login:', err);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ message: 'Server Error' });
   }
 });
 
