@@ -29,10 +29,11 @@ Special Instructions for Form 1
 
 
 If you want to just see lists I created previously you can use:
-username: saturday
-password: saturday 
+username: saturday3
+password: saturday 3
 
-but otherwise you can register a user, and then create new list, then add a Show/Movie
+If that is not avaliable:
+you can register a user, and then create new list, then add a Show/Movie
 
 
 URL for form 2 (for current milestone)
@@ -46,8 +47,8 @@ URL for form 2 (for current milestone)
 Special Instructions for Form 2
 ---
 Same as last milestone if you want to see some premade nonsense lists/shows/movies/reviews use:
-username: saturday
-password: saturday 
+username: saturday3
+password: saturday3
 
 URL for form 3 (from previous milestone) 
 ---
@@ -57,8 +58,8 @@ URL for form 3 (from previous milestone)
 Special Instructions for Form 3
 ---
 Same as last milestone if you want to see some premade nonsense lists/shows/movies/reviews use:
-username: saturday
-password: saturday 
+username: saturday3
+password: saturday3 
 
 I declined to use salting and hashing for now so its plain text.
 
