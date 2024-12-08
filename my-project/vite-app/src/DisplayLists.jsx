@@ -27,7 +27,7 @@ const ListsDisplay = ({ userId ,listsUpdated}) => {
     fetchLists();
     //had to use AI tool to get this function right because I ddint quite understand how to achieve this
   }, [userId,listsUpdated]);
-  //for viewing:
+  //For viewing using the buttons:
   useEffect(() => {
     console.log(selectedListId);
     if (selectedListId) {
@@ -50,6 +50,7 @@ const ListsDisplay = ({ userId ,listsUpdated}) => {
         <ul>
           {/* //get lists by id but print out names not id */}
           {/* console.log(lists); */}
+          {/* https://stackoverflow.com/questions/31198170/want-to-add-spacing-between-buttons */}
           {lists.map((list) => (
             <li key={list._id}>
               {list.listname}
@@ -57,12 +58,13 @@ const ListsDisplay = ({ userId ,listsUpdated}) => {
             </li>
           ))}
         </ul>
+        {/* Once you select a list you can see the items */}
         {selectedListId && (
         <div>
           <h3> Shows and Movies in List</h3>
           <ul>
             {shows.map((show) => (
-              <li key={show._id}>{show.title} ({show.year}) ({show.rating}) ({show.description}) ({show.genre}) </li>
+              <li key={show._id}>{"Title: "}{show.title} ({"Year: "}{show.year}) ({"Rating (0-1): "}{show.rating}) ({"Description: "}{show.description}) ({"Genre: "}{show.genre}) </li>
             ))}
           </ul>
           <ShowForm listId={selectedListId} onShowAdded={handleShowAdded} />

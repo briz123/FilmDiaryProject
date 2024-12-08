@@ -19,9 +19,12 @@ const App = () => {
   // const [userId,setUserId] = useState('672d8ae51f54359e52aec2fd')
   //so I can show my components:
   const [userId,setUserId] = useState(null);
+  //Login From/Register Form:
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  //So I can decide whether or not to show certain info based on if they are logged in:
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //Reviews:
   const [reviews,setReviews]= useState([]);
   //
   const [listsUpdated, setListsUpdated] = useState(false);
@@ -69,23 +72,26 @@ const App = () => {
     }
   },[userId]);
 
-  const fetchReviews = async () => {
-    //no user 
-    if (!userId) return;  
-    try {
-      const response = await axios.get(`${API}/api/items/user/${userId}`);
-      const data = response.data.map((item) => ({
-        title: item.title,  
-        id: item._id,
-        reviewDescription: item.reviewDescription,
-      }));
-      setReviews(data);
-    } catch (error) {
-      console.error("error getting reviews:", error);
-    }
-  };
+    const fetchReviews = async () => {
+      //no user 
+      if (!userId) return;  
+      try {
+        const response = await axios.get(`${API}/api/items/user/${userId}`);
+        const data = response.data.map((item) => ({
+          title: item.title,  
+          id: item._id,
+          reviewDescription: item.reviewDescription,
+        }));
+        setReviews(data);
+      } catch (error) {
+        console.error("error getting reviews:", error);
+      }
+    };
+
+  
   //https://mui.com/x/react-data-grid/
   //used mui and their documentation to display a users reviews
+  //id is required for some reason and I am not sure on why 
   const columns = [
     {field:'id',headerName:'ID',width:90},
     {field: 'title',headerName: 'Title',width: 90},

@@ -32,6 +32,7 @@ app.use(cors());
 
 // app.listen(process.env.PORT ?? 3000);
 //authentication
+//Using a Router
 app.use('/api/auth', authRoutes);
 //make new list
 

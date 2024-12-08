@@ -32,11 +32,12 @@ const FormLists = ({ userId, onCreate }) => {
         <input
           type="text"
           value={listName}
-          //source in md
+          //source in md2
           onChange={(e) => setListName(e.target.value)}
         />
+        <button type="submit"> Create List </button>
       </div>
-      <button type="submit"> Create List </button>
+      
     </form>
   );
 };

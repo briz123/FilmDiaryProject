@@ -1,20 +1,19 @@
 import express from 'express';
 import { User } from './db.js'; // Make sure your database model is imported correctly
 import validator from 'validator';
-
+//using routes and a router that will be used in index
 const router = express.Router();
 
-
+//User should be able to register as a new user
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   let message;
-
-  
   if (!username || !password) {
     message = 'Username and password are required';
     return res.status(400).json({message });
   }
   //used validator.js
+  //research topic
   if (!validator.isAlphanumeric(username)) {
     message = 'Username must be alphanumeric';
     return res.status(400).json({message });
@@ -42,14 +41,14 @@ router.post('/register', async (req, res) => {
     await user.save();
 
     // console.log('User registered successfully:', user);  
-
+    //userId is now passed along
     return res.status(201).json({ message: 'Registration successful', userId: user._id });
   } catch (err) {
     console.log('Error during registration:', err);
     res.status(500).json({ message: 'Server Error' });
   }
 });
-
+//User should be able to Login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   let message;
@@ -89,7 +88,7 @@ router.post('/login', async (req, res) => {
       console.log(message);
       return res.status(400).json({ message });
     }
-    //match:
+    //match: UserId is now passed along
     return res.json({ message: 'Login successful', userId: user._id });
   } catch (err) {
     console.log('Error during login:', err);

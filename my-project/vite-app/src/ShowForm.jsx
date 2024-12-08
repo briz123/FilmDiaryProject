@@ -43,9 +43,10 @@ const ShowForm = ({listId, onShowAdded}) =>{
     }
     return (
         //return details:
+        //https://stackoverflow.com/questions/22206587/how-to-justify-content-with-space-between-and-have-everything-centered
         <form onSubmit={handleSubmit}>
           <h3>Add a Show or Movie to the List</h3>
-          <div>
+          <div className="inputflex">
             <label>Title:</label>
             <input
               type="text"
@@ -54,7 +55,7 @@ const ShowForm = ({listId, onShowAdded}) =>{
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="inputflex">
             <label>Year:</label>
             <input
               type="number"
@@ -63,7 +64,7 @@ const ShowForm = ({listId, onShowAdded}) =>{
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="inputflex">
             <label>Description:</label>
             <input
               type="text"
@@ -72,7 +73,7 @@ const ShowForm = ({listId, onShowAdded}) =>{
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="inputflex">
             <label>Genre:</label>
             <input
               type="text"
@@ -81,7 +82,7 @@ const ShowForm = ({listId, onShowAdded}) =>{
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className="inputflex">
             <label>Rating:</label>
             <input
               type="number"
@@ -92,7 +93,7 @@ const ShowForm = ({listId, onShowAdded}) =>{
               max="1"
             />
           </div>
-          <div>
+          <div className="inputflex">
             <label>Review:</label>
             <input
               type="text"

@@ -52,7 +52,7 @@ const itemSchema = new Schema({
   reviewDescription: { type: String,required: true},
   listId: { type: Schema.Types.ObjectId, ref: 'List', required: true }
 });
-
+//No longer using Review and instead will just be inside an Item
 // Review Schema
 // const reviewSchema = new Schema({
 //   itemId: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
