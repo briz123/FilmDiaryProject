@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ShowForm from './showForm';
+import ShowForm from './ShowForm';
 const API = import.meta.env.VITE_BACKEND_URL;
 console.log(API)
 // eslint-disable-next-line react/prop-types
