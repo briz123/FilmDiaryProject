@@ -20,7 +20,6 @@ mongoose.connect(process.env.DSN);
 
 
 
-// mongoose.connect("mongodb+srv://bcb5360:Brizen13@final-project.xsqjn.mongodb.net/final-project?retryWrites=true&w=majority&appName=final-project");
 
 
 //same as in Readme.md just in schema format
